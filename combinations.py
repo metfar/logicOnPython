@@ -80,7 +80,7 @@ ValidationCondition:\t"""+condition+"""
 	return(0);
 	
 def main(args):
-	Combinations();
+	Combinations(5,2);
 	return(0);
 
 if __name__ == '__main__':
