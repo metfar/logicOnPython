@@ -28,7 +28,7 @@ def listToSet(x):
 	return(str(x).replace('[','{').replace(']','}').replace("'",""));
 
 
-def Combinations(n=1,k=1):
+def Combinations(n=1,k=1,tablePrinted=False):
 	var=[1,0];
 	VARS={};
 	numOfVars=n;
@@ -57,7 +57,8 @@ ValidationCondition:\t"""+condition+"""
 	Evaluation=chipEvaluator(VARS,RES);
 	
 	from tomd import Tomd;
-	ResTable=Tomd(Evaluation).markdown.replace(cSpace," ").split("\n");
+	Table=Tomd(Evaluation).markdown.replace(cSpace," ");
+	ResTable=Table.split("\n");
 	num=len(ResTable[3].split())-2;
 	tot=0;
 	elements=ResTable[1].replace("|","").split()[:-1];
@@ -77,10 +78,13 @@ ValidationCondition:\t"""+condition+"""
 			tot+=1;
 	
 	print(("\t"*numOfPlaces)+"}\nTotal of valid results: ",tot);
+	
+	if(tablePrinted):
+		print("\n",Table);
 	return(0);
 	
 def main(args):
-	Combinations(5,2);
+	Combinations(5,2,True);
 	return(0);
 
 if __name__ == '__main__':
