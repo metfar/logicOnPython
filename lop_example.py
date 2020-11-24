@@ -3,7 +3,7 @@
 #
 #  lop_example.py
 #  
-#  Copyright 2020 William Martinez Bas <wmartinez@metfar>
+#  Copyright 2020 William Martinez Bas <metfar@gmail.com>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -20,7 +20,11 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 #  
-#  
+#  	Location: 	https://github.com/metfar/logicOnPython/blob/main/lop_example.py
+#	Project:	Logic On Python
+#	URL:		https://github.com/metfar/logicOnPython
+
+
 from lop import *;
 import os;
 

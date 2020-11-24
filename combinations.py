@@ -3,7 +3,7 @@
 #
 #  combinations.py
 #  
-#  Copyright 2020 William Martinez Bas <wmartinez@metfar>
+#  Copyright 2020 William Martinez Bas <metfar@gmail.com>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -20,7 +20,9 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 #  
-#  
+#  	Location: 	https://github.com/metfar/logicOnPython/blob/main/combinations.py
+#	Project:	Logic On Python
+#	URL:		https://github.com/metfar/logicOnPython
 
 from lop  import  *;
 
@@ -68,7 +70,6 @@ ValidationCondition:\t"""+condition+"""
 	for f in ResTable:
 		row=[n for n in f.split()];
 		if(len(row)>num and str(row[num])=="1"):
-			#print(f);
 			o=f.replace("|","").split();
 			print("\t{",end=" ");
 			for g in range(len(o)-1):
@@ -77,14 +78,31 @@ ValidationCondition:\t"""+condition+"""
 			print("}");
 			tot+=1;
 	
-	print(("\t"*numOfPlaces)+"}\nTotal of valid results: ",tot);
+	print(("\t"*numOfPlaces)+"}\n\nTotal of valid results: ",tot,"\n");
 	
 	if(tablePrinted):
 		print("\n",Table);
 	return(0);
 	
 def main(args):
-	Combinations(5,2,True);
+	if(len(args)>1 and args[1] in ["-h","--help","/?","-?"]):
+		print(args[0]," requires at least two arguments.\n");
+		print("This program uses boolean logic library I made to generate combinations.\n");
+		print("First argument is number of elements from the sample.\n");
+		print("Second argument is the number of locations to take elements from the sample.\n");
+		print("Example: "+args[0]+" 3 2 1");
+
+		Combinations(3,2,1);
+		
+	elif(len(args)<3):
+		print(args[0]," requires at least two arguments.\n\n[-h|--help|-?]\tShows help.\n");
+	elif(len(args)==3):
+		Combinations(int(args[1]),int(args[2]));
+	else:
+		try:
+			Combinations(int(args[1]),int(args[2]),TF(args[3]));
+		except:
+			print("\nSorry, the were some error!");
 	return(0);
 
 if __name__ == '__main__':
