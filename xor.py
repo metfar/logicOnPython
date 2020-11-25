@@ -32,22 +32,46 @@ def main(args):
 	html=0;
 	var=[1,0];
 	VARS={
-			"_A"	:	var,
-			"_B"	:	var
+			"_P"	:	var,
+			"_Q"	:	var
 			};
 	RES=[	
 			{
-			"name"	:	"(A ∧ B)",
-			"value"	:	"AND(_A,_B)"
+			"name"	:	"(P ∧ Q)",
+			"value"	:	"AND(_P,_Q)"
 			},
 			{
-			"name"	:	"(A ⊽ B)",
-			"value"	:	"NOR(_A,_B)"
+			"name"	:	"(P ⊽ Q)",
+			"value"	:	"NOR(_P,_Q)"
 			},
 	
 			{
-			"name"	:	"_OUT=(A ∧ B) ⊽ ( A ⊽ B )",
-			"value"	:	"NOR(AND(_A,_B),NOR(_A,_B))"
+			"name"	:	"_OUT_MINE=(P ∧ Q) ⊽ ( P ⊽ Q )",
+			"value"	:	"NOR(AND(_P,_Q),NOR(_P,_Q))"
+			},
+			{
+			"name"	:	"(P⊼P)",
+			"value"	:	"NAND(_P,_P)"
+			},
+			{
+			"name"	:	"((P⊼P)⊼Q)",
+			"value"	:	"NAND(NAND(_P,_P),_Q)"
+			},
+			{
+			"name"	:	"(Q⊼Q)",
+			"value"	:	"NAND(_Q,_Q)"
+			},
+			{
+			"name"	:	"((Q⊼Q)⊼P)",
+			"value"	:	"NAND(NAND(_Q,_Q),_P)"
+			},
+			{
+			"name"	:	"_OUT_OPT=((P⊼P)⊼Q)⊼((Q⊼Q)⊼P)",
+			"value"	:	"NAND(NAND(NAND(_P,_P),_Q),NAND(NAND(_Q,_Q),_P))"
+			},
+			{
+			"name"	:	"_XOR=(P⊻Q)",
+			"value"	:	"XOR(_P,_Q)"
 			}
 		];
 	
